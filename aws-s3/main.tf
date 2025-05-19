@@ -19,5 +19,5 @@ resource "aws_s3_object" "bucket_data" {
 }
 
 output "random_id" {
-  value = random_id.random_id.hex
+  value = random_id.random_id.auxiliary
 }
