@@ -8,7 +8,7 @@ resource "random_id" "random_id" {
 }
 
 resource "aws_s3_bucket" "mybucket"{
-    bucket = "mybucket-${random_id.random_id.hex}"
+    bucket = "mybucket-${random_id.random_id.b64_url}"
 }
 
 
@@ -19,5 +19,5 @@ resource "aws_s3_object" "bucket_data" {
 }
 
 output "random_id" {
-  value = random_id.random_id.auxiliary
+  value = random_id.random_id.hex
 }
