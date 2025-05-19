@@ -8,7 +8,8 @@ resource "random_id" "random_id" {
 }
 
 resource "aws_s3_bucket" "mybucket"{
-    bucket = "mybucket-${random_id.random_id.b64_url}"
+    bucket = "mybucket-${random_id.random_id.hex}"
+  
 }
 
 
