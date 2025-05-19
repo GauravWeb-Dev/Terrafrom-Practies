@@ -8,19 +8,19 @@ resource "random_id" "random_id" {
 }
 
 resource "aws_s3_bucket" "webapp-bucket"{
-    bucket = "mywebapp-bucket-${random_id.random_id.hex}"
+    bucket = "webapp-bucket-${random_id.random_id.hex}"
 }
 
 
 resource "aws_s3_object" "index_html" {
-    bucket = aws_s3_bucket.mywebapp-bucket.bucket
+    bucket = aws_s3_bucket.webapp-bucket.bucket
     source = "index.html"
     key  = "index.html"
 
 }
 
 resource "aws_s3_object" "style_css" {
-    bucket = aws_s3_bucket.mywebapp-bucket.bucket
+    bucket = aws_s3_bucket.webapp-bucket.bucket
     source = "style.css"
     key  = "style.css"
 
