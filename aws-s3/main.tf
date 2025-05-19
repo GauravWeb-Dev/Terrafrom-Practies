@@ -9,6 +9,7 @@ resource "random_id" "random_id" {
 
 resource "aws_s3_bucket" "mybucket"{
     bucket = "mybucket-${random_id.random_id.hex}"
+        force_destroy = true
   
 }
 
@@ -17,6 +18,7 @@ resource "aws_s3_object" "bucket_data" {
     bucket = aws_s3_bucket.mybucket.bucket
     source = "myfile.txt"
     key  = "mydata.txt"
+
 }
 
 output "random_id" {
